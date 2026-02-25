@@ -98,4 +98,61 @@
             border-radius: 4px;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: all 0.3s
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(26, 54, 93, 0.2);
+        }
+
+        .cv-button:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(26, 54, 93, 0.3);
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+            font-size: 0.95rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .about-section { flex-direction: column; text-align: center; align-items: center; }
+            nav a { display: block; margin: 10px 0; }
+            .about-text h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">About Me</a>
+        <a href="academic-work.html">Academic Work</a>
+        <a href="essays.html">Essays</a>
+        <a href="media.html">Media & Talks</a>
+    </nav>
+
+    <div class="container">
+        <div class="about-section">
+            <img src="profile.jpg" alt="Ofer Idels" class="profile-pic">
+            
+            <div class="about-text">
+                <h1>Ofer Idels</h1>
+                <p>
+                    I am a researcher specializing in [Your Field]. My work explores the intersection of 
+                    [Topic A] and [Topic B], with a specific focus on [Geographic Area or Era]. 
+                    Currently, I am working on [Current Project/Book/Fellowship].
+                </p>
+                
+                <a href="cv.pdf" class="cv-button" target="_blank">Download Curriculum Vitae</a>
+
+                <div class="contact-info">
+                    <strong>Email:</strong> <a href="mailto:yourname@institution.com" style="color: var(--accent);">yourname@institution.com</a><br>
+                    <strong>Office:</strong> [Department Name, Building, Room]
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
