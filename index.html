@@ -11,6 +11,7 @@
     <style>
         :root {
             --israeli-blue: #0038b8; 
+            --israeli-blue-dark: #001a57; /* Deepened for better burning */
             --sky-azure: #f0f7ff;    
             --deep-navy: #0f172a;    
             --slate: #475569;
@@ -103,11 +104,6 @@
             transition: all 0.5s ease;
         }
 
-        .hero-profile-pic:hover {
-            transform: scale(1.02);
-            filter: grayscale(100%) contrast(1.2);
-        }
-
         .hero-text {
             text-align: center; 
         }
@@ -177,13 +173,6 @@
             transform: translateY(-2px);
         }
 
-        .substack-icon {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-            vertical-align: middle;
-        }
-
         .hero-bio {
             font-size: 1.05rem;
             color: var(--slate);
@@ -230,79 +219,121 @@
             color: var(--israeli-blue);
         }
 
-        /* --- FEATURED BOOK SECTIONS --- */
+        /* --- VIGNETTE & SIDELINE SYSTEM FOR BOOKS --- */
         .featured-banner {
+            position: relative;
             color: var(--white);
-            padding: 100px 2rem;
+            padding: 100px 0; /* Vertical only, horizontal handled by container */
             min-height: 100vh;
             display: flex;
             align-items: center;
+            overflow: hidden;
+            /* Inner Burn Effect */
+            box-shadow: inset 0 80px 100px -40px rgba(0,0,0,0.6), 
+                        inset 0 -80px 100px -40px rgba(0,0,0,0.6);
         }
 
+        /* Sideline Burn + Texture Overlay */
+        .featured-banner::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Theme 1: Rutgers (Framed Spotlight) */
         .featured-banner.rutgers-theme {
-            background-color: var(--israeli-blue);
+            background: 
+                linear-gradient(to right, #000 0%, transparent 15%, transparent 85%, #000 100%),
+                radial-gradient(circle at center, var(--israeli-blue) 0%, var(--israeli-blue-dark) 100%);
         }
 
+        /* Theme 2: Cambridge (Framed Spotlight) */
         .featured-banner.cambridge-theme {
-            background-color: var(--deep-navy); 
+            background: 
+                linear-gradient(to right, #000 0%, transparent 15%, transparent 85%, #000 100%),
+                radial-gradient(circle at center, var(--deep-navy) 20%, #000 100%);
         }
 
         .featured-container {
-            max-width: 1400px;
+            position: relative;
+            z-index: 3;
+            max-width: 1300px; /* Slightly narrower to focus */
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 50px;
+            gap: 40px;
+            padding: 0 40px;
+        }
+
+        /* Subtle Ghost Frame around content */
+        .content-frame {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(2px);
+            border-radius: 4px;
         }
 
         .featured-header {
             text-align: center;
+            margin-bottom: 40px;
         }
 
         .featured-header h2 {
             font-family: var(--font-header);
-            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 0.5rem;
             font-weight: 700;
             color: var(--white);
+            text-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            letter-spacing: 0.05em;
         }
 
         .featured-sub {
             font-family: var(--font-header);
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             font-style: italic;
             color: var(--sky-azure);
             display: block;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
         }
 
         .publisher-line {
             font-family: var(--font-nav);
             font-size: 0.75rem;
             font-weight: 700;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--sky-azure);
             opacity: 0.8;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
+        /* 3-Column Content Dashboard */
         .book-dashboard {
             display: grid;
-            grid-template-columns: 1.2fr 1fr 1.2fr;
+            grid-template-columns: 1.2fr 0.9fr 1.2fr;
             gap: 50px;
             align-items: start;
         }
 
         .book-description {
             font-size: 0.95rem;
-            line-height: 1.8;
+            line-height: 1.75;
             opacity: 0.95;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .order-btn {
             display: inline-block;
-            margin-top: 35px;
-            padding: 14px 30px;
+            margin-top: 30px;
+            padding: 12px 28px;
             background-color: var(--white);
             color: var(--israeli-blue);
             font-family: var(--font-nav);
@@ -313,24 +344,47 @@
             text-decoration: none;
             border-radius: 2px;
             transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
-        .cambridge-theme .order-btn {
-            color: var(--deep-navy);
-        }
+        .cambridge-theme .order-btn { color: var(--deep-navy); }
 
         .order-btn:hover {
             background-color: var(--sky-azure);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .book-cover-col {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Spotlight Halo behind Book */
+        .book-cover-col::after {
+            content: "";
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140%; height: 140%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .book-img {
             width: 100%;
-            max-width: 340px;
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.5);
+            max-width: 320px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
             border-radius: 2px;
             background: #fff;
+            position: relative;
+            z-index: 5;
+            transition: transform 0.4s ease;
+        }
+
+        .book-img:hover {
+            transform: scale(1.02) rotate(-1deg);
         }
 
         .book-reviews-dashboard {
@@ -340,7 +394,7 @@
         }
 
         .review-item-compact {
-            border-left: 2px solid rgba(255,255,255,0.2);
+            border-left: 2px solid rgba(255,255,255,0.25);
             padding-left: 20px;
         }
 
@@ -350,6 +404,7 @@
             font-style: italic;
             opacity: 0.9;
             margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.85);
         }
 
         .review-author-compact {
@@ -373,9 +428,18 @@
         }
 
         /* --- RESPONSIVE --- */
-        @media (max-width: 1200px) {
+        @media (max-width: 1300px) {
+            .featured-banner {
+                background: radial-gradient(circle at center, var(--israeli-blue) 0%, var(--israeli-blue-dark) 100%);
+            }
+            .featured-banner.cambridge-theme {
+                background: radial-gradient(circle at center, var(--deep-navy) 20%, #000 100%);
+            }
+        }
+
+        @media (max-width: 1100px) {
             .book-dashboard { grid-template-columns: 1fr 1fr; }
-            .book-reviews-dashboard { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+            .book-reviews-dashboard { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
         }
 
         @media (max-width: 900px) {
@@ -383,8 +447,8 @@
             .hero-image-wrapper { justify-self: center; order: 1; }
             .hero-text { text-align: center; order: 2; }
             .book-dashboard { display: flex; flex-direction: column; align-items: center; }
-            .book-reviews-dashboard { display: flex; flex-direction: column; grid-column: auto; }
-            .featured-banner { height: auto; padding: 100px 20px; }
+            .book-reviews-dashboard { display: flex; flex-direction: column; }
+            .content-frame { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -400,7 +464,7 @@
         </ul>
     </nav>
 
-    <!-- REFINED SPLIT HERO -->
+    <!-- HERO SECTION -->
     <header class="hero">
         <div class="hero-container">
             <div class="hero-image-wrapper">
@@ -444,62 +508,66 @@
         </div>
     </header>
 
-    <!-- BOOK 1: RUTGERS -->
+    <!-- BOOK 1: RUTGERS (Framed Spotlight) -->
     <section class="featured-banner rutgers-theme" id="book-1">
         <div class="featured-container">
-            <div class="featured-header">
-                <h2>Embodying the Revolution</h2>
-                <span class="featured-sub">The Hebrew Experience and the Globalization of Modern Sports in Interwar Palestine</span>
-                <p class="publisher-line">Rutgers University Press, 2025</p>
-            </div>
-            <div class="book-dashboard">
-                <div class="book-description">
-                    <p>Embodying the Revolution offers a new reading of Zionism by situating Jewish sport in interwar Palestine within the broader history of modern athletics. Drawing on extensive archival sources and informed by contemporary literary and historical theory, the book highlights an unexpected Zionist unease with modern competitive sports.</p>
-                    <p style="margin-top:15px;">It reveals a society in which athletes did not automatically emerge as symbols of national pride, thereby complicating conventional interpretations of the “New Jew” as a purely top-down ideological construct.</p>
-                    <a href="https://www.rutgersuniversitypress.org/embodying-the-revolution/9781978844452" target="_blank" class="order-btn">Order from Rutgers Press</a>
+            <div class="content-frame">
+                <div class="featured-header">
+                    <h2>Embodying the Revolution</h2>
+                    <span class="featured-sub">The Hebrew Experience and the Globalization of Modern Sports in Interwar Palestine</span>
+                    <p class="publisher-line">Rutgers University Press, 2025</p>
                 </div>
-                <div class="book-cover-col">
-                    <img src="book-cover.jpg" alt="Embodying the Revolution Cover" class="book-img" onerror="this.src='https://via.placeholder.com/450x650?text=Embodying+the+Revolution'">
-                </div>
-                <div class="book-reviews-dashboard">
-                    <div class="review-item-compact">
-                        <p class="review-text-compact">"Ofer Idels offers the first historically grounded and philosophically argued answer to the question about the specific marginal position of sports in contemporary Israeli culture."</p>
-                        <p class="review-author-compact">— Hans Ulrich Gumbrecht</p>
+                <div class="book-dashboard">
+                    <div class="book-description">
+                        <p>Embodying the Revolution offers a new reading of Zionism by situating Jewish sport in interwar Palestine within the broader history of modern athletics. Drawing on extensive archival sources and informed by contemporary literary and historical theory, the book highlights an unexpected Zionist unease with modern competitive sports.</p>
+                        <p style="margin-top:15px;">It reveals a society in which athletes did not automatically emerge as symbols of national pride, thereby complicating conventional interpretations of the “New Jew” as a purely top-down ideological construct.</p>
+                        <a href="https://www.rutgersuniversitypress.org/embodying-the-revolution/9781978844452" target="_blank" class="order-btn">Order from Rutgers Press</a>
                     </div>
-                    <div class="review-item-compact">
-                        <p class="review-text-compact">"With forceful originality, Embodying the Revolution challenges us to rethink the connections between physical experience and ideology."</p>
-                        <p class="review-author-compact">— Hannah Pollin-Galay</p>
+                    <div class="book-cover-col">
+                        <img src="book-cover.jpg" alt="Embodying the Revolution Cover" class="book-img" onerror="this.src='https://via.placeholder.com/450x650?text=Book+Cover'">
                     </div>
-                    <div class="review-item-compact">
-                        <p class="review-text-compact">"This absorbing book situates Zionist debates about sports in Interwar Palestine within their global context to reveal varied ways perceptions faced counter-discourse."</p>
-                        <p class="review-author-compact">— Erik N. Jensen</p>
+                    <div class="book-reviews-dashboard">
+                        <div class="review-item-compact">
+                            <p class="review-text-compact">"Ofer Idels offers the first historically grounded and philosophically argued answer to the question about the specific marginal position of sports in contemporary Israeli culture."</p>
+                            <p class="review-author-compact">— Hans Ulrich Gumbrecht</p>
+                        </div>
+                        <div class="review-item-compact">
+                            <p class="review-text-compact">"With forceful originality, Embodying the Revolution challenges us to rethink the connections between physical experience and ideology."</p>
+                            <p class="review-author-compact">— Hannah Pollin-Galay</p>
+                        </div>
+                        <div class="review-item-compact">
+                            <p class="review-text-compact">"Situates Zionist debates about sports within their global context to reveal the varied ways perceptions faced counter-discourse."</p>
+                            <p class="review-author-compact">— Erik N. Jensen</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BOOK 2: CAMBRIDGE -->
+    <!-- BOOK 2: CAMBRIDGE (Framed Spotlight) -->
     <section class="featured-banner cambridge-theme" id="book-2">
         <div class="featured-container">
-            <div class="featured-header">
-                <h2>Zionism</h2>
-                <span class="featured-sub">Emotions, Language and Experience</span>
-                <p class="publisher-line">Cambridge University Press, 2024</p>
-            </div>
-            <div class="book-dashboard">
-                <div class="book-description">
-                    <p>Focusing on the visceral and embodied historical aspects of the linguistic modernization of Hebrew, I argue that cultural studies of Zionism have reached an impasse, which the history of emotions could help us overcome.</p>
-                    <p style="margin-top:15px;">Interpreting Zionist texts not solely as symbolic myths but as a historical, lived experience, this book advocates for the significance of the history of emotions and experience as an innovative methodology with profound ethical implications for our polarized era.</p>
-                    <a href="https://www.cambridge.org/de/universitypress/subjects/history/history-ideas-and-intellectual-history/zionism-emotions-language-and-experience?format=PB" target="_blank" class="order-btn">Order from Cambridge Press</a>
+            <div class="content-frame">
+                <div class="featured-header">
+                    <h2>Zionism</h2>
+                    <span class="featured-sub">Emotions, Language and Experience</span>
+                    <p class="publisher-line">Cambridge University Press, 2024</p>
                 </div>
-                <div class="book-cover-col">
-                    <img src="book-2-cover.jpg" alt="Zionism Book Cover" class="book-img" onerror="this.src='https://via.placeholder.com/450x650?text=Zionism+CUP'">
-                </div>
-                <div class="book-reviews-dashboard">
-                    <div class="review-item-compact">
-                        <p class="review-text-compact">"To say Ofer Idels’s analysis is daring diminishes its force. It cuts against the grain of both the conventional work on Israel and what has been celebrated as its most pioneering."</p>
-                        <p class="review-author-compact">— Donna Robinson Divine</p>
+                <div class="book-dashboard">
+                    <div class="book-description">
+                        <p>Focusing on the visceral and embodied historical aspects of the linguistic modernization of Hebrew, I argue that cultural studies of Zionism have reached an impasse, which the history of emotions could help us overcome.</p>
+                        <p style="margin-top:15px;">Interpreting Zionist texts not solely as symbolic myths but as a historical, lived experience, this book advocates for the significance of the history of emotions and experience as an innovative methodology with profound ethical implications for our polarized era.</p>
+                        <a href="https://www.cambridge.org/de/universitypress/subjects/history/history-ideas-and-intellectual-history/zionism-emotions-language-and-experience?format=PB" target="_blank" class="order-btn">Order from Cambridge Press</a>
+                    </div>
+                    <div class="book-cover-col">
+                        <img src="book-2-cover.jpg" alt="Zionism Book Cover" class="book-img" onerror="this.src='https://via.placeholder.com/450x650?text=Zionism+CUP'">
+                    </div>
+                    <div class="book-reviews-dashboard">
+                        <div class="review-item-compact">
+                            <p class="review-text-compact">"To say Ofer Idels’s analysis is daring diminishes its force. It cuts against the grain of both the conventional work on Israel and what has been celebrated as its most pioneering."</p>
+                            <p class="review-author-compact">— Donna Robinson Divine</p>
+                        </div>
                     </div>
                 </div>
             </div>
