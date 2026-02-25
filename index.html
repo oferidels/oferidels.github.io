@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ofer Idels | Scholar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --text-color: #2d3748;
+            --bg-color: #f7fafc;
+            --link-color: #2b6cb0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3 { font-family: 'Merriweather', serif; color: var(--primary-color); }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        
+        /* 1. About Me Section with Picture */
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .about-text h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .about-text p { font-size: 1.1rem; }
+
+        /* Publication & Essay Lists */
+        .list-section { margin-bottom: 4rem; }
+        .list-section h2 { margin-bottom: 1.5rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; }
+        
+        .item-entry {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-color);
+        }
+        .item-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .item-details { font-size: 0.95rem; color: #4a5568; margin-bottom: 0.5rem; }
+        .item-link a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .item-link a:hover { text-decoration: underline; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .about-section { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="about-section">
+            <img src="https://via.placeholder.com/200" alt="Ofer Idels" class="profile-pic">
+            <div class="about-text">
+                <h1>Ofer Idels</h1>
+                <p>Welcome. I am a scholar focusing on [Your Field]. My work explores [Brief description of your academic focus]. Currently, I am based at [Institution/Location].</p>
+                <p><strong>Contact:</strong> <a href="mailto:your.email@example.com" style="color: var(--link-color);">your.email@example.com</a></p>
+            </div>
+        </div>
+
+        <div class="list-section">
+            <h2>Academic Publications</h2>
+            
+            <div class="item-entry">
+                <div class="item-title">Title of Your Academic Paper</div>
+                <div class="item-details">Journal Name, Vol(Issue), Year. Co-authors (if any).</div>
+                <div class="item-link"><a href="LINK-GOES-HERE" target="_blank">Read Paper / PDF</a></div>
+            </div>
+
+            <div class="item-entry">
+                <div class="item-title">Another Academic Paper Title</div>
+                <div class="item-details">University Press, 2024.</div>
+                <div class="item-link"><a href="#" target="_blank">View DOI</a></div>
+            </div>
+        </div>
+
+        <div class="list-section">
+            <h2>Public Essays & Interviews</h2>
+            
+            <div class="item-entry">
+                <div class="item-title">Title of the Essay or Interview</div>
+                <div class="item-details">Published in Magazine/Website Name, Month Year.</div>
+                <div class="item-link"><a href="LINK-GOES-HERE" target="_blank">Read Article</a></div>
+            </div>
+
+            <div class="item-entry">
+                <div class="item-title">Podcast Interview: Discussing My Research</div>
+                <div class="item-details">The Academic Podcast, Hosted by John Doe, 2025.</div>
+                <div class="item-link"><a href="#" target="_blank">Listen to Episode</a></div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
