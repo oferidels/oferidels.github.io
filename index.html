@@ -3,155 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ofer Idels | Scholar</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <title>Ofer Idels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #1a365d;    /* Oxford Blue */
-            --accent: #2c5282;     /* Lighter Blue */
-            --text: #2d3748;       /* Soft Black body text */
-            --light-bg: #fdfdfd;   /* Off-white background */
-            --card-bg: #ffffff;
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text);
-            background-color: var(--light-bg);
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: #1a1a1a;
+            background-color: #ffffff;
+            line-height: 1.6;
             margin: 0;
-            line-height: 1.8;
-        }
-
-        /* High-end Serif Headings */
-        h1, h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary);
-            margin-top: 0;
-        }
-
-        /* Clean, Sticky Navigation */
-        nav {
-            background: white;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid #eee;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: var(--text);
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: 500;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent);
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 850px;
+            max-width: 700px; /* Slimmer column for better readability */
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 80px 40px;
         }
 
-        /* About Section Layout */
-        .about-section {
-            display: flex;
-            align-items: flex-start;
-            gap: 4rem;
+        /* Minimalist Nav */
+        nav {
+            margin-bottom: 60px;
         }
 
-        .profile-pic {
-            width: 220px;
-            height: auto;
-            border-radius: 8px; /* Modern slightly rounded corners */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            background-color: #eee; /* Placeholder color before image loads */
-        }
-
-        .about-text h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Professional Button */
-        .cv-button {
-            display: inline-block;
-            padding: 12px 28px;
-            background: var(--primary);
-            color: white !important;
+        nav a {
             text-decoration: none;
-            border-radius: 4px;
+            color: #777;
+            font-size: 0.9rem;
+            margin-right: 25px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #000;
+        }
+
+        /* Bio Section */
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        .intro {
+            font-size: 1.05rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .intro p {
+            margin-bottom: 20px;
+        }
+
+        /* Profile Image - Minimalist style */
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%; /* Amit uses a circle, or sometimes no photo */
+            object-fit: cover;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        /* Links */
+        a {
+            color: #0055aa;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Headings */
+        h2 {
+            font-size: 1.1rem;
             font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(26, 54, 93, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
         }
 
-        .cv-button:hover {
-            background: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(26, 54, 93, 0.3);
+        .cv-link {
+            font-weight: 500;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 2px;
+            color: #000;
         }
 
-        .contact-info {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
-            font-size: 0.95rem;
+        .cv-link:hover {
+            border-bottom-color: #000;
+            text-decoration: none;
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .about-section { flex-direction: column; text-align: center; align-items: center; }
-            nav a { display: block; margin: 10px 0; }
-            .about-text h1 { font-size: 2.2rem; }
+        footer {
+            margin-top: 100px;
+            font-size: 0.8rem;
+            color: #999;
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.html">About Me</a>
-        <a href="academic-work.html">Academic Work</a>
-        <a href="essays.html">Essays</a>
-        <a href="media.html">Media & Talks</a>
-    </nav>
-
     <div class="container">
-        <div class="about-section">
-            <img src="profile.jpg" alt="Ofer Idels" class="profile-pic">
-            
-            <div class="about-text">
-                <h1>Ofer Idels</h1>
-                <p>
-                    I am a researcher specializing in [Your Field]. My work explores the intersection of 
-                    [Topic A] and [Topic B], with a specific focus on [Geographic Area or Era]. 
-                    Currently, I am working on [Current Project/Book/Fellowship].
-                </p>
-                
-                <a href="cv.pdf" class="cv-button" target="_blank">Download Curriculum Vitae</a>
+        <nav>
+            <a href="index.html" class="active">about</a>
+            <a href="academic-work.html">research</a>
+            <a href="essays.html">essays</a>
+            <a href="media.html">media</a>
+        </nav>
 
-                <div class="contact-info">
-                    <strong>Email:</strong> <a href="mailto:yourname@institution.com" style="color: var(--accent);">yourname@institution.com</a><br>
-                    <strong>Office:</strong> [Department Name, Building, Room]
-                </div>
-            </div>
-        </div>
+        <img src="profile.jpg" alt="Ofer Idels" class="profile-pic">
+
+        <h1>Ofer Idels</h1>
+
+        <section class="intro">
+            <p>
+                I am a scholar specializing in [Field]. My research focuses on [Topic], 
+                exploring how [Aspect A] influences [Aspect B].
+            </p>
+            <p>
+                Currently, I am a [Position] at [Institution]. Previously, I was at [Old Institution].
+            </p>
+            <p>
+                You can reach me at <a href="mailto:ofer.idels@example.com">ofer.idels@example.com</a> 
+                or find my full credentials in my <a href="cv.pdf" class="cv-link">Curriculum Vitae</a>.
+            </p>
+        </section>
+
+        <h2>Recent News</h2>
+        <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
+            <li style="margin-bottom: 10px;">
+                <span style="color: #888; margin-right: 15px;">Jan 2024</span> 
+                New paper on [Topic] published in <i>Journal Name</i>.
+            </li>
+            <li style="margin-bottom: 10px;">
+                <span style="color: #888; margin-right: 15px;">Dec 2023</span> 
+                Presented keynote at [Conference Name].
+            </li>
+        </ul>
+
+        <footer>
+            &copy; 2024 Ofer Idels
+        </footer>
     </div>
 
 </body>
