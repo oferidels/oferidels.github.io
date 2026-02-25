@@ -3,51 +3,369 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ofer Idels | Academic Work</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+    <title>Research | Ofer Idels</title>
+    <!-- Premium Font Pairing: Cinzel (Headers), Montserrat (UI), and Source Sans 3 (Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        :root { --primary-color: #1a365d; --text-color: #2d3748; --bg-color: #f7fafc; --link-color: #2b6cb0; }
-        body { font-family: 'Inter', sans-serif; color: var(--text-color); background-color: var(--bg-color); line-height: 1.7; margin: 0; padding: 0; }
-        h1, h2, h3 { font-family: 'Merriweather', serif; color: var(--primary-color); }
-        nav { background-color: var(--primary-color); padding: 1rem; text-align: center; }
-        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 1.1rem; }
-        nav a:hover { text-decoration: underline; }
-        .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
-        .list-section h2 { margin-bottom: 1.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
-        .item-entry { background: white; padding: 1.5rem; margin-bottom: 1rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-left: 4px solid var(--primary-color); }
-        .item-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.3rem; }
-        .item-details { font-size: 0.95rem; color: #4a5568; margin-bottom: 0.5rem; }
-        .item-link a { color: var(--link-color); text-decoration: none; font-weight: 600; }
-        .item-link a:hover { text-decoration: underline; }
-        @media (max-width: 600px) { nav a { display: block; margin: 10px 0; } }
+        :root {
+            --israeli-blue: #0038b8; 
+            --deep-navy: #0f172a;    
+            --slate: #475569;
+            --white: #ffffff;
+            --border-light: #e2e8f0;
+            
+            /* Typography Variables */
+            --font-header: 'Cinzel', serif;
+            --font-nav: 'Montserrat', sans-serif;
+            --font-body: 'Source Sans 3', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--deep-navy);
+            background-color: var(--white);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 1.5rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.8rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--slate);
+            font-family: var(--font-nav);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--israeli-blue);
+        }
+
+        /* --- RESEARCH HEADER --- */
+        .research-header {
+            padding: 100px 2rem 60px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .research-header h1 {
+            font-family: var(--font-header);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--deep-navy);
+            margin-bottom: 30px;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--israeli-blue);
+            color: var(--white);
+            font-family: var(--font-nav);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .primary-btn:hover {
+            background-color: var(--deep-navy);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        /* --- RESEARCH CONTENT --- */
+        .research-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 120px;
+        }
+
+        .section-title {
+            font-family: var(--font-header);
+            font-size: 1.1rem;
+            color: var(--israeli-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 15px;
+            margin: 80px 0 40px;
+            font-weight: 700;
+        }
+
+        .publication-entry {
+            margin-bottom: 45px;
+        }
+
+        .publication-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .pub-title {
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--deep-navy);
+            line-height: 1.5;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .pub-meta {
+            font-size: 1rem;
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        .pub-meta em {
+            font-style: italic;
+        }
+
+        /* Minimalist bracketed links */
+        .read-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: var(--israeli-blue);
+            text-decoration: none;
+            font-family: var(--font-nav);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            transition: opacity 0.2s;
+        }
+
+        .read-link:hover {
+            opacity: 0.7;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: #fafafa;
+            border-top: 1px solid var(--border-light);
+            color: var(--slate);
+        }
+
+        .contact-link {
+            color: var(--israeli-blue);
+            font-family: var(--font-header);
+            font-size: 0.9rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--israeli-blue);
+            transition: opacity 0.3s;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .contact-link:hover { opacity: 0.7; }
+
+        .social-links {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-links a { color: var(--slate); font-size: 1.2rem; text-decoration: none; transition: color 0.3s ease; }
+        .social-links a:hover { color: var(--israeli-blue); }
+
+        .substack-icon { width: 18px; height: 18px; fill: currentColor; vertical-align: middle; }
+
+        .copyright { font-family: var(--font-nav); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.3em; opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .research-header { padding: 60px 1.5rem 40px; }
+            .pub-title { font-size: 1.1rem; }
+        }
     </style>
 </head>
 <body>
 
-<nav>
-        <a href="index.html">About Me</a>
-        <a href="academic-work.html">Academic Work</a>
-        <a href="essays.html">Essays</a>
-        <a href="media.html">Media & Talks</a>
+    <!-- NAVIGATION MENU -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="academic-work.html" class="active">Research</a></li>
+            <li><a href="essays.html">Essays</a></li>
+            <li><a href="media.html">Media</a></li>
+        </ul>
     </nav>
 
-    <div class="container">
-        <div class="list-section">
-            <h2>Academic Work</h2>
+    <!-- HEADER & ACADEMIA BUTTON -->
+    <header class="research-header">
+        <h1>Research</h1>
+        <a href="https://ucalgary.academia.edu/OferIdels" target="_blank" class="primary-btn">View Full Profile on Academia.edu</a>
+    </header>
+
+    <!-- CONTENT SECTIONS -->
+    <main class="research-container">
+
+        <!-- BOOKS -->
+        <section id="books">
+            <h2 class="section-title">Books</h2>
+            <div class="publication-entry">
+                <span class="pub-title">Embodying the Revolution: The New Jew and the Globalization of Modern Sports in Interwar Palestine</span>
+                <p class="pub-meta">Rutgers University Press (2025)</p>
+            </div>
+            <div class="publication-entry">
+                <span class="pub-title">Zionism: Emotions, Language and Experience</span>
+                <p class="pub-meta">Cambridge University Press (2024)</p>
+            </div>
+        </section>
+
+        <!-- PEER-REVIEWED ARTICLES -->
+        <section id="articles">
+            <h2 class="section-title">Peer-Reviewed Articles</h2>
             
-            <div class="item-entry">
-                <div class="item-title">Title of Your Academic Paper or Project</div>
-                <div class="item-details">Journal Name, Vol(Issue), Year. Co-authors (if any).</div>
-                <div class="item-link"><a href="LINK-GOES-HERE" target="_blank">Read Paper / PDF</a></div>
+            <div class="publication-entry">
+                <span class="pub-title">Israeli Nonsense: Humor, Globalization and Vegetables During the Early Nineties (with Roni Cohen)</span>
+                <p class="pub-meta"><em>Humor: International Journal of Humor Research</em> (2024)</p>
+                <a href="https://doi.org/10.1515/humor-2023-0164" target="_blank" class="read-link">[ Read Article ]</a>
             </div>
 
-            <div class="item-entry">
-                <div class="item-title">Another Scholarly Project or Chapter</div>
-                <div class="item-details">University Press, 2024.</div>
-                <div class="item-link"><a href="#" target="_blank">View DOI</a></div>
+            <div class="publication-entry">
+                <span class="pub-title">The Idea of Sports is Pure and Noble: Internationalism and a Universal Language</span>
+                <p class="pub-meta"><em>The International History Review</em> (2024)</p>
+                <a href="https://doi.org/10.1080/07075332.2024.2349048" target="_blank" class="read-link">[ Read Article ]</a>
             </div>
+
+            <div class="publication-entry">
+                <span class="pub-title">Modern Sport, Ideal and Historiography (Published in Hebrew)</span>
+                <p class="pub-meta"><em>Historia: The Journal of the Israeli Historical Society</em>, 51 (2023)</p>
+            </div>
+
+            <div class="publication-entry">
+                <span class="pub-title">How to Lose Gracefully in an Internationally Selfish World: Gender, the ‘New Jew’ and the Underestimation of Athletic Performance in Interwar Palestine</span>
+                <p class="pub-meta"><em>Journal of Modern Jewish Studies</em>, 21 (2022)</p>
+                <a href="https://doi.org/10.1080/14725886.2021.1898747" target="_blank" class="read-link">[ Read Article ]</a>
+            </div>
+
+            <div class="publication-entry">
+                <span class="pub-title">Can We Call Gymnastics Sport: The Inception of Competitive Sport in the Yishuv and the Limitations of Zionist Periodization (Published in Hebrew)</span>
+                <p class="pub-meta"><em>Israel</em>, 27-28 (2021)</p>
+            </div>
+
+            <div class="publication-entry">
+                <span class="pub-title">Imagined Games: Sport, The Yishuv and the XI Olympiad, 1931-1936 (Published in Hebrew)</span>
+                <p class="pub-meta"><em>Cathedra</em>, 167 (2018)</p>
+            </div>
+        </section>
+
+        <!-- EDITORIAL & ENCYCLOPEDIA -->
+        <section id="editorial">
+            <h2 class="section-title">Editorial & Encyclopedia Contributions</h2>
+            
+            <div class="publication-entry">
+                <span class="pub-title">Sport, History, and Historiography (Published in Hebrew)</span>
+                <p class="pub-meta">Special Issue Editor, <em>Historia: The Journal of the Israeli Historical Society</em>, 51 (2023)</p>
+            </div>
+
+            <div class="publication-entry">
+                <span class="pub-title">Zionism</span>
+                <p class="pub-meta">1914-1918-online. <em>International Encyclopedia of the First World War</em> (2018)</p>
+                <a href="https://doi.org/10.15463/ie1418.11241" target="_blank" class="read-link">[ Read Entry ]</a>
+            </div>
+        </section>
+
+        <!-- BOOK REVIEWS -->
+        <section id="reviews">
+            <h2 class="section-title">Book Reviews</h2>
+            
+            <div class="publication-entry">
+                <span class="pub-title">Review of Viola Alianov-Rautenberg’s ‘No Longer Ladies and Gentlemen: Gender and the German-Jewish Migration to Mandatory Palestine’</span>
+                <p class="pub-meta"><em>AJS Review</em>, 48 (2024)</p>
+                <a href="https://doi.org/10.1353/ajs.2024.a946719" target="_blank" class="read-link">[ Read Review ]</a>
+            </div>
+
+            <div class="publication-entry">
+                <span class="pub-title">Review of Udi Carmi’s ‘The Home Field: Sports in Israel the First Two Decades’ (Published in Hebrew)</span>
+                <p class="pub-meta"><em>Zion</em>, 89 (2024)</p>
+            </div>
+
+            <div class="publication-entry">
+                <span class="pub-title">Review of Carl Rommel's ‘Egypt’s Football Revolution: Emotion, Masculinity, and Uneasy Politics’</span>
+                <p class="pub-meta"><em>Journal of Sport History</em>, 49, no. 1 (2022)</p>
+                <a href="https://muse.jhu.edu/article/867353" target="_blank" class="read-link">[ Read Review ]</a>
+            </div>
+
+            <div class="publication-entry">
+                <span class="pub-title">Review of Wolfgang Paterno’s ‘Faust und Geist. Literatur und Boxen zwischen den Weltkriegen’ (with Ohad Kohn)</span>
+                <p class="pub-meta"><em>Monatshefte</em>, 111 (2019)</p>
+                <a href="https://muse.jhu.edu/article/727658" target="_blank" class="read-link">[ Read Review ]</a>
+            </div>
+
+            <div class="publication-entry">
+                <span class="pub-title">Review of Moshe Zimmerman (Ed.), ‘Muscular Religion: Sport Nationalism, Judaism’ (Published in Hebrew)</span>
+                <p class="pub-meta"><em>Zmanim: A Historical Quarterly</em>, 140 (2019)</p>
+            </div>
+        </section>
+
+        <!-- SHORT ESSAYS -->
+        <section id="essays">
+            <h2 class="section-title">Short Essays & Exhibitions</h2>
+            
+            <div class="publication-entry">
+                <span class="pub-title">The Allure of Sport and Hebrew Culture</span>
+                <p class="pub-meta"><em>Intersections</em> (2024)</p>
+            </div>
+
+            <div class="publication-entry">
+                <span class="pub-title">Helene Mayer: Zuschreibung und Aneignung eines Sportstars</span>
+                <p class="pub-meta"><em>Never Walk Alone: Jüdische Identitäten im Sport</em> (Exhibition Catalogue, Jewish Museum Munich, 2017)</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER WITH CONTACT & SOCIAL LINKS -->
+    <footer>
+        <a href="mailto:oferidels@gmail.com" class="contact-link">Contact Me</a>
+        <div class="social-links">
+            <a href="https://www.facebook.com/ofer.idels" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/OferIdels" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://substack.com/@oferidels" target="_blank" title="Substack">
+                <svg class="substack-icon" viewBox="0 0 448 512">
+                    <path d="M0 0l448 0 0 74.2 -448 0 0 -74.2zm0 128.4l448 0 0 185.3 -224 113.1L0 313.7l0 -185.3zm0 259.5l448 0 0 124.1L0 512l0 -124.1z"/>
+                </svg>
+            </a>
         </div>
-    </div>
+        <p class="copyright">&copy; 2026 Ofer Idels. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
