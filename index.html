@@ -11,11 +11,10 @@
     <style>
         :root {
             --israeli-blue: #0038b8; 
-            --israeli-blue-dark: #001a57; /* Deepened for better burning */
-            --sky-azure: #f0f7ff;    
             --deep-navy: #0f172a;    
             --slate: #475569;
             --white: #ffffff;
+            --border-light: #e2e8f0;
             
             /* Typography Variables */
             --font-header: 'Cinzel', serif;
@@ -42,7 +41,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid var(--border-light);
         }
 
         nav ul {
@@ -69,13 +68,12 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            min-height: 95vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(circle at top right, var(--sky-azure) 0%, #ffffff 100%);
             padding: 60px 40px;
-            border-bottom: 1px solid #eef2f6;
+            background: #ffffff;
         }
 
         .hero-container {
@@ -84,24 +82,22 @@
             display: grid;
             grid-template-columns: 1fr 1.2fr;
             align-items: center;
-            gap: 100px;
+            gap: 80px;
         }
 
         .hero-image-wrapper {
             justify-self: end;
-            position: relative;
         }
 
         .hero-profile-pic {
             width: 100%;
-            max-width: 460px;
+            max-width: 440px;
             height: auto;
             border-radius: 2px;
-            filter: grayscale(100%) contrast(1.1) brightness(1.02);
-            box-shadow: 25px 25px 0px var(--sky-azure), 0 20px 50px rgba(0,0,0,0.1);
-            border: 1px solid #fff;
+            filter: grayscale(100%) contrast(1.1);
+            box-shadow: 20px 20px 0px #f8fafc;
+            border: 1px solid #eee;
             display: block;
-            transition: all 0.5s ease;
         }
 
         .hero-text {
@@ -110,7 +106,7 @@
 
         .hero h1 {
             font-family: var(--font-header);
-            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-size: clamp(3rem, 7vw, 6rem);
             color: var(--deep-navy);
             margin-bottom: 5px;
             line-height: 1;
@@ -128,67 +124,13 @@
             display: block;
         }
 
-        .hero-cta {
-            margin-top: 35px;
-        }
-
-        .hero-email {
-            color: var(--israeli-blue);
-            font-family: var(--font-header);
-            font-size: 0.85rem;
-            text-decoration: none;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s;
-            display: block;
-            width: fit-content;
-            margin: 0 auto;
-            padding-bottom: 2px;
-        }
-
-        .hero-email:hover {
-            border-bottom-color: var(--israeli-blue);
-        }
-
-        .social-links {
-            margin: 18px 0 35px 0;
-            display: flex;
-            gap: 22px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .social-links a {
-            color: var(--slate);
-            font-size: 1.1rem;
-            transition: color 0.3s ease, transform 0.2s ease;
-            text-decoration: none;
-            opacity: 0.7;
-        }
-
-        .social-links a:hover {
-            color: var(--israeli-blue);
-            opacity: 1;
-            transform: translateY(-2px);
-        }
-
-        /* Restoration of Substack Icon Styling */
-        .substack-icon {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-            vertical-align: middle;
-        }
-
         .hero-bio {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: var(--slate);
-            max-width: 480px;
-            margin: 0 auto;
+            max-width: 520px;
+            margin: 30px auto 0;
             line-height: 1.7;
             font-weight: 400;
-            padding: 0 10px;
         }
 
         .hero-bio strong {
@@ -196,148 +138,84 @@
             font-weight: 600;
         }
 
-        .interests-container {
-            margin-top: 40px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
-            max-width: 550px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.8;
-        }
-
-        .tag {
-            font-family: var(--font-nav);
-            background: transparent;
-            color: var(--slate);
-            font-size: 0.55rem;
-            padding: 4px 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            border: 1px solid #e2e8f0;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .tag:hover {
-            border-color: var(--israeli-blue);
-            color: var(--israeli-blue);
-        }
-
-        /* --- VIGNETTE & SIDELINE SYSTEM FOR BOOKS --- */
+        /* --- CLEAN BOOK SECTIONS --- */
         .featured-banner {
-            position: relative;
-            color: var(--white);
-            padding: 100px 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            box-shadow: inset 0 80px 100px -40px rgba(0,0,0,0.6), 
-                        inset 0 -80px 100px -40px rgba(0,0,0,0.6);
-        }
-
-        .featured-banner::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
-            opacity: 0.08;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        .featured-banner.rutgers-theme {
-            background: 
-                linear-gradient(to right, #000 0%, transparent 15%, transparent 85%, #000 100%),
-                radial-gradient(circle at center, var(--israeli-blue) 0%, var(--israeli-blue-dark) 100%);
-        }
-
-        .featured-banner.cambridge-theme {
-            background: 
-                linear-gradient(to right, #000 0%, transparent 15%, transparent 85%, #000 100%),
-                radial-gradient(circle at center, var(--deep-navy) 20%, #000 100%);
+            background-color: var(--white);
+            color: var(--deep-navy);
+            padding: 100px 2rem;
+            border-top: 1px solid var(--border-light);
         }
 
         .featured-container {
-            position: relative;
-            z-index: 3;
             max-width: 1300px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 40px;
-            padding: 0 40px;
-        }
-
-        .content-frame {
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 60px 40px;
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(2px);
-            border-radius: 4px;
+            gap: 50px;
         }
 
         .featured-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .featured-header h2 {
             font-family: var(--font-header);
             font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             font-weight: 700;
-            color: var(--white);
-            text-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            letter-spacing: 0.05em;
+            color: var(--deep-navy);
         }
 
         .featured-sub {
-            font-family: var(--font-header);
-            font-size: 1.15rem;
+            /* Using Sans font to allow proper Title Case (lowercase) */
+            font-family: var(--font-body);
+            font-size: 1.4rem;
             font-style: italic;
-            color: var(--sky-azure);
+            color: var(--slate);
             display: block;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            line-height: 1.4;
+            text-transform: none;
+            letter-spacing: normal;
         }
 
         .publisher-line {
             font-family: var(--font-nav);
             font-size: 0.75rem;
             font-weight: 700;
-            letter-spacing: 0.25em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--sky-azure);
-            opacity: 0.8;
+            color: var(--israeli-blue);
             margin-top: 20px;
         }
 
         .book-dashboard {
             display: grid;
-            grid-template-columns: 1.2fr 0.9fr 1.2fr;
+            grid-template-columns: 1.2fr 1fr 1.2fr;
             gap: 50px;
-            align-items: start;
+            align-items: start; /* Precision Alignment of top edges */
+        }
+
+        /* Aligning the start of content to the same pixel line */
+        .book-description p:first-child,
+        .book-reviews-dashboard .review-item-compact:first-child {
+            margin-top: 0;
+            padding-top: 0;
         }
 
         .book-description {
-            font-size: 0.95rem;
-            line-height: 1.75;
-            opacity: 0.95;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--slate);
         }
 
         .order-btn {
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 35px;
             padding: 12px 28px;
-            background-color: var(--white);
-            color: var(--israeli-blue);
+            background-color: var(--israeli-blue);
+            color: var(--white);
             font-family: var(--font-nav);
             font-size: 0.75rem;
             font-weight: 700;
@@ -346,66 +224,42 @@
             text-decoration: none;
             border-radius: 2px;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
-
-        .cambridge-theme .order-btn { color: var(--deep-navy); }
 
         .order-btn:hover {
-            background-color: var(--sky-azure);
+            background-color: var(--deep-navy);
             transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-        }
-
-        .book-cover-col {
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-
-        .book-cover-col::after {
-            content: "";
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 140%; height: 140%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            pointer-events: none;
         }
 
         .book-img {
             width: 100%;
             max-width: 320px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+            /* Substantial physical drop shadow */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+            border: 1px solid #eee;
             border-radius: 2px;
-            background: #fff;
-            position: relative;
-            z-index: 5;
-            transition: transform 0.4s ease;
-        }
-
-        .book-img:hover {
-            transform: scale(1.02) rotate(-1deg);
+            margin: 0 auto;
+            display: block;
         }
 
         .book-reviews-dashboard {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 40px;
         }
 
         .review-item-compact {
-            border-left: 2px solid rgba(255,255,255,0.25);
+            border-left: 2px solid var(--border-light);
             padding-left: 20px;
         }
 
         .review-text-compact {
-            font-size: 0.85rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            /* High line spacing for readability */
+            line-height: 2;
             font-style: italic;
-            opacity: 0.9;
-            margin-bottom: 10px;
-            color: rgba(255, 255, 255, 0.85);
+            color: var(--slate);
+            margin-bottom: 12px;
         }
 
         .review-author-compact {
@@ -413,48 +267,103 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--sky-azure);
+            color: var(--deep-navy);
             font-weight: 600;
         }
 
+        /* --- FOOTER --- */
         footer {
-            padding: 6rem 0;
+            padding: 6rem 2rem;
             text-align: center;
-            border-top: 1px solid #f1f5f9;
+            background: #fafafa;
+            border-top: 1px solid var(--border-light);
             color: var(--slate);
-            font-family: var(--font-nav);
-            font-size: 0.7rem;
+        }
+
+        .contact-link {
+            color: var(--israeli-blue);
+            font-family: var(--font-header);
+            font-size: 0.9rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            letter-spacing: 0.4em;
+            border-bottom: 1px solid var(--israeli-blue);
+            transition: opacity 0.3s;
+            display: inline-block;
+            margin-bottom: 25px;
         }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1300px) {
-            .featured-banner {
-                background: radial-gradient(circle at center, var(--israeli-blue) 0%, var(--israeli-blue-dark) 100%);
-            }
-            .featured-banner.cambridge-theme {
-                background: radial-gradient(circle at center, var(--deep-navy) 20%, #000 100%);
-            }
+        .contact-link:hover {
+            opacity: 0.7;
         }
 
+        .social-links {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-links a {
+            color: var(--slate);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: var(--israeli-blue);
+        }
+
+        .substack-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            vertical-align: middle;
+        }
+
+        .copyright {
+            font-family: var(--font-nav);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            opacity: 0.8;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 1100px) {
-            .book-dashboard { grid-template-columns: 1fr 1fr; }
-            .book-reviews-dashboard { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
+            .book-dashboard {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .book-description {
+                max-width: 700px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .book-reviews-dashboard {
+                max-width: 700px;
+                margin: 40px auto 0;
+                text-align: left;
+            }
+            .review-item-compact {
+                margin: 0 auto;
+            }
         }
 
         @media (max-width: 900px) {
-            .hero-container { grid-template-columns: 1fr; gap: 50px; }
-            .hero-image-wrapper { justify-self: center; order: 1; }
-            .hero-text { text-align: center; order: 2; }
-            .book-dashboard { display: flex; flex-direction: column; align-items: center; }
-            .book-reviews-dashboard { display: flex; flex-direction: column; }
-            .content-frame { padding: 40px 20px; }
+            .hero-container { grid-template-columns: 1fr; gap: 40px; }
+            .hero-image-wrapper { justify-self: center; }
+            .hero-profile-pic { max-width: 300px; box-shadow: 15px 15px 0px #f8fafc; }
+            .hero-bio { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVIGATION MENU -->
     <nav>
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
@@ -464,7 +373,7 @@
         </ul>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- TRADITIONAL HERO SECTION -->
     <header class="hero">
         <div class="hero-container">
             <div class="hero-image-wrapper">
@@ -475,108 +384,90 @@
                 <span class="tagline">Scholar of Zionism and Modern Israel</span>
                 
                 <div class="hero-cta">
-                    <a href="mailto:oferidels@gmail.com" class="hero-email">oferidels@gmail.com</a>
-                    
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/ofer.idels" target="_blank" title="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://x.com/OferIdels" target="_blank" title="X (Twitter)">
-                            <i class="fab fa-x-twitter"></i>
-                        </a>
-                        <!-- Substack restored here -->
-                        <a href="https://substack.com/@oferidels?utm_campaign=profile&utm_medium=profile-page" target="_blank" title="Substack">
-                            <svg class="substack-icon" viewBox="0 0 448 512">
-                                <path d="M0 0l448 0 0 74.2 -448 0 0 -74.2zm0 128.4l448 0 0 185.3 -224 113.1L0 313.7l0 -185.3zm0 259.5l448 0 0 124.1L0 512l0 -124.1z"/>
-                            </svg>
-                        </a>
-                    </div>
-
                     <p class="hero-bio">
-                        Historian and <strong>Belzberg Postdoctoral Fellow</strong> in Israel Studies at the University of Calgary. Author of two books and father of two daughters, not necessarily in that order.
+                        Historian and <strong>Belzberg Postdoctoral Fellow</strong> in Israel Studies at the University of Calgary. Author of two books and father of two daughters, not necessarily in that order. 
+                        <br><br>
+                        My research focuses on the history of emotions, the history of sport, and physical culture in interwar Palestine.
                     </p>
-
-                    <div class="interests-container">
-                        <span class="tag">History of Emotions</span>
-                        <span class="tag">Zionism</span>
-                        <span class="tag">History of Sport</span>
-                        <span class="tag">Historical Theory</span>
-                        <span class="tag">Hebrew Revival</span>
-                        <span class="tag">Postcritique</span>
-                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- BOOK 1: RUTGERS -->
-    <section class="featured-banner rutgers-theme" id="book-1">
+    <!-- BOOK 1: EMBODYING THE REVOLUTION -->
+    <section class="featured-banner" id="book-1">
         <div class="featured-container">
-            <div class="content-frame">
-                <div class="featured-header">
-                    <h2>Embodying the Revolution</h2>
-                    <span class="featured-sub">The Hebrew Experience and the Globalization of Modern Sports in Interwar Palestine</span>
-                    <p class="publisher-line">Rutgers University Press, 2025</p>
+            <div class="featured-header">
+                <h2>Embodying the Revolution</h2>
+                <span class="featured-sub">The Hebrew Experience and the Globalization of Modern Sports in Interwar Palestine</span>
+                <p class="publisher-line">Rutgers University Press, 2025</p>
+            </div>
+            <div class="book-dashboard">
+                <div class="book-description">
+                    <p>Uncovering an unexpected tension between Zionism and modern competitive sports. Informed by extensive archival sources and contemporary theory, <i>Embodying the Revolution</i> situates the Hebrew experience squarely within the broader, global history of modern sports, offering a groundbreaking new reading on the essence of Zionism.</p>
+                    <a href="https://www.rutgersuniversitypress.org/embodying-the-revolution/9781978844452" target="_blank" class="order-btn">Order from Rutgers Press</a>
                 </div>
-                <div class="book-dashboard">
-                    <div class="book-description">
-                        <p>Embodying the Revolution offers a new reading of Zionism by situating Jewish sport in interwar Palestine within the broader history of modern athletics. Drawing on extensive archival sources and informed by contemporary literary and historical theory, the book highlights an unexpected Zionist unease with modern competitive sports.</p>
-                        <p style="margin-top:15px;">It reveals a society in which athletes did not automatically emerge as symbols of national pride, thereby shedding new light on both the appeal of sport and conventional interpretations of the “New Jew” as a purely top-down ideological construct.</p>
-                        <a href="https://www.rutgersuniversitypress.org/embodying-the-revolution/9781978844452" target="_blank" class="order-btn">Order from Rutgers Press</a>
+                <div class="book-cover-col">
+                    <img src="book-cover.jpg" alt="Embodying the Revolution Cover" class="book-img" onerror="this.src='https://via.placeholder.com/450x650?text=Book+Cover'">
+                </div>
+                <div class="book-reviews-dashboard">
+                    <div class="review-item-compact">
+                        <p class="review-text-compact">"The first historically grounded and philosophically argued answer to exceptional marginal position of sports in contemporary Israeli culture. An incisive threshold both for readers with a scholarly agenda and with a broader typological interest."</p>
+                        <p class="review-author-compact">— Hans Ulrich Gumbrecht</p>
                     </div>
-                    <div class="book-cover-col">
-                        <img src="book-cover.jpg" alt="Embodying the Revolution Cover" class="book-img" onerror="this.src='https://via.placeholder.com/450x650?text=Book+Cover'">
+                    <div class="review-item-compact">
+                        <p class="review-text-compact">"With forceful originality, Embodying the Revolution challenges us to rethink the connections between physical experience and ideology, Zionist history and the world. Idels's passion for the historian's craft makes the book an excellent read."</p>
+                        <p class="review-author-compact">— Hannah Pollin-Galay</p>
                     </div>
-                    <div class="book-reviews-dashboard">
-                        <div class="review-item-compact">
-                            <p class="review-text-compact">"Ofer Idels offers the first historically grounded and philosophically argued answer to the question about the specific marginal position of sports in contemporary Israeli culture."</p>
-                            <p class="review-author-compact">— Hans Ulrich Gumbrecht</p>
-                        </div>
-                        <div class="review-item-compact">
-                            <p class="review-text-compact">"With forceful originality, Embodying the Revolution challenges us to rethink the connections between physical experience and ideology."</p>
-                            <p class="review-author-compact">— Hannah Pollin-Galay</p>
-                        </div>
-                        <div class="review-item-compact">
-                            <p class="review-text-compact">"Situates Zionist debates about sports within their global context to reveal the varied ways perceptions faced counter-discourse."</p>
-                            <p class="review-author-compact">— Erik N. Jensen</p>
-                        </div>
+                    <div class="review-item-compact">
+                        <p class="review-text-compact">"This absorbing book situates Zionist debates about sports in Interwar Palestine within their global context. physical cultivation proclaimed a larger collective purpose."</p>
+                        <p class="review-author-compact">— Erik N. Jensen</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BOOK 2: CAMBRIDGE -->
-    <section class="featured-banner cambridge-theme" id="book-2">
+    <!-- BOOK 2: ZIONISM -->
+    <section class="featured-banner" id="book-2">
         <div class="featured-container">
-            <div class="content-frame">
-                <div class="featured-header">
-                    <h2>Zionism</h2>
-                    <span class="featured-sub">Emotions, Language and Experience</span>
-                    <p class="publisher-line">Cambridge University Press, 2024</p>
+            <div class="featured-header">
+                <h2>Zionism</h2>
+                <span class="featured-sub">Emotions, Language and Experience</span>
+                <p class="publisher-line">Cambridge University Press, 2024</p>
+            </div>
+            <div class="book-dashboard">
+                <div class="book-description">
+                    <p>Focusing on the visceral and embodied historical aspects of the linguistic modernization of Hebrew, this book advocates for the significance of the history of emotions and experience as an innovative methodology with profound ethical implications for our polarized era.</p>
+                    <a href="https://www.cambridge.org/de/universitypress/subjects/history/history-ideas-and-intellectual-history/zionism-emotions-language-and-experience?format=PB" target="_blank" class="order-btn">Order from Cambridge Press</a>
                 </div>
-                <div class="book-dashboard">
-                    <div class="book-description">
-                        <p>Focusing on the visceral and embodied historical aspects of the linguistic modernization of Hebrew, I argue that cultural studies of Zionism have reached an impasse, which the history of emotions could help us overcome.</p>
-                        <p style="margin-top:15px;">Interpreting Zionist texts not solely as symbolic myths but as a historical, lived experience, this book advocates for the significance of the history of emotions and experience as an innovative methodology with profound ethical implications for our polarized era.</p>
-                        <a href="https://www.cambridge.org/de/universitypress/subjects/history/history-ideas-and-intellectual-history/zionism-emotions-language-and-experience?format=PB" target="_blank" class="order-btn">Order from Cambridge Press</a>
-                    </div>
-                    <div class="book-cover-col">
-                        <img src="book-2-cover.jpg" alt="Zionism Book Cover" class="book-img" onerror="this.src='https://via.placeholder.com/450x650?text=Zionism+CUP'">
-                    </div>
-                    <div class="book-reviews-dashboard">
-                        <div class="review-item-compact">
-                            <p class="review-text-compact">"To say Ofer Idels’s analysis is daring diminishes its force. It cuts against the grain of both the conventional work on Israel and what has been celebrated as its most pioneering."</p>
-                            <p class="review-author-compact">— Donna Robinson Divine</p>
-                        </div>
+                <div class="book-cover-col">
+                    <img src="book-2-cover.jpg" alt="Zionism Book Cover" class="book-img" onerror="this.src='https://via.placeholder.com/450x650?text=Zionism+CUP'">
+                </div>
+                <div class="book-reviews-dashboard">
+                    <div class="review-item-compact">
+                        <p class="review-text-compact">"To say Ofer Idels’s analysis is daring diminishes its force. It cuts against the grain of both the conventional work on Israel and what has been celebrated as its most pioneering."</p>
+                        <p class="review-author-compact">— Donna Robinson Divine</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER WITH CONTACT & SOCIAL LINKS -->
     <footer>
-        <p>&copy; 2026 Ofer Idels. All Rights Reserved.</p>
+        <a href="mailto:oferidels@gmail.com" class="contact-link">Contact Me</a>
+
+        <div class="social-links">
+            <a href="https://www.facebook.com/ofer.idels" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/OferIdels" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://substack.com/@oferidels" target="_blank" title="Substack">
+                <svg class="substack-icon" viewBox="0 0 448 512">
+                    <path d="M0 0l448 0 0 74.2 -448 0 0 -74.2zm0 128.4l448 0 0 185.3 -224 113.1L0 313.7l0 -185.3zm0 259.5l448 0 0 124.1L0 512l0 -124.1z"/>
+                </svg>
+            </a>
+        </div>
+        <p class="copyright">&copy; 2026 Ofer Idels. All Rights Reserved.</p>
     </footer>
 
 </body>
