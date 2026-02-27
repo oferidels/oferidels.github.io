@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) - Visitor Tracking (Replace G-XXXXXXXXXX with your actual ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ofer Idels | Historian</title>
-    <!-- Premium Font Pairing: Cinzel (Headers), Montserrat (UI), and Source Sans 3 (Body) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Premium Font Pairing -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Font Awesome for Social Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <style>
         :root {
             --israeli-blue: #0038b8; 
@@ -133,11 +143,6 @@
             font-weight: 400;
         }
 
-        .hero-bio strong {
-            color: var(--deep-navy);
-            font-weight: 600;
-        }
-
         /* --- MODERN BOOK SECTION DESIGN --- */
         .book-section {
             padding: 120px 2rem;
@@ -178,6 +183,7 @@
             color: var(--slate);
             margin-bottom: 25px;
             display: block;
+            text-transform: none;
         }
 
         .book-hook {
@@ -279,7 +285,7 @@
 
         /* --- FOOTER --- */
         footer {
-            padding: 8rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
             background: #fafafa;
             border-top: 1px solid var(--border-light);
@@ -299,6 +305,8 @@
             display: inline-block;
             margin-bottom: 25px;
         }
+
+        .contact-link:hover { opacity: 0.7; }
 
         .social-links {
             margin-bottom: 30px;
@@ -323,7 +331,6 @@
                 gap: 50px;
             }
             .book-content { text-align: center; }
-            .book-content .order-btn { margin-bottom: 20px; }
             .book-container { max-width: 700px; }
             
             /* Remove Staggering on Mobile */
@@ -384,7 +391,7 @@
                 <div class="book-content">
                     <h2>Embodying the Revolution</h2>
                     <span class="book-subtitle">The Hebrew Experience and the Globalization of Modern Sports in Interwar Palestine</span>
-                    <div class="book-hook">Uncovering an unexpected tension between the New Jew and modern competitive sports.</div>
+                    <div class="book-hook">Uncovering an unexpected tension between Zionism and modern competitive sports.</div>
                     <p class="book-description">
                         Informed by extensive archival sources and contemporary theory, <i>Embodying the Revolution</i> situates the Hebrew experience squarely within the broader, global history of modern sports, offering a groundbreaking new reading on the essence of Zionism.
                     </p>
@@ -444,7 +451,7 @@
                     <p class="review-text">“Idels’ book makes an important contribution to the field of the history of Zionism…it opens a challenging conversation regarding the ways in which we historians need to think about the past.”</p>
                     <p class="review-author">— Roni Cohen</p>
                 </div>
-                <!-- Spacer for staggered look -->
+                <!-- Hidden card to keep the grid layout consistent -->
                 <div class="review-card review-low" style="visibility: hidden;"></div>
             </div>
         </div>
