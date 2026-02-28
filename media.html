@@ -13,11 +13,12 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Essays | Ofer Idels</title>
+    <title>Media | Ofer Idels</title>
     <!-- Premium Font Pairing: Cinzel (Headers), Montserrat (UI), and Source Sans 3 (Body) -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Font Awesome for Social Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <style>
         :root {
             --israeli-blue: #0038b8; 
@@ -76,53 +77,24 @@
             color: var(--israeli-blue);
         }
 
-        /* --- ESSAYS HEADER --- */
-        .essays-header {
+        /* --- HEADER --- */
+        .media-header {
             padding: 100px 2rem 60px;
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .essays-header h1 {
+        .media-header h1 {
             font-family: var(--font-header);
             font-size: clamp(2.5rem, 6vw, 4.5rem);
             color: var(--deep-navy);
             margin-bottom: 25px;
         }
 
-        .header-intro {
-            font-size: 1.15rem;
-            color: var(--slate);
-            line-height: 1.7;
-            margin-bottom: 40px;
-        }
-
-        .primary-btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background-color: var(--israeli-blue);
-            color: var(--white);
-            font-family: var(--font-nav);
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            text-decoration: none;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .primary-btn:hover {
-            background-color: var(--deep-navy);
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        /* --- ESSAYS CONTENT --- */
-        .essays-container {
-            max-width: 900px;
+        /* --- CONTENT CONTAINER --- */
+        .media-container {
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 2rem 120px;
         }
@@ -139,15 +111,66 @@
             font-weight: 700;
         }
 
-        .essay-entry {
+        /* --- VIDEO GRID --- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+        }
+
+        .video-item {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 2px;
+            background: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-meta {
+            text-align: left;
+        }
+
+        .video-title {
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--deep-navy);
+            line-height: 1.4;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .video-date {
+            font-family: var(--font-nav);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--slate);
+        }
+
+        /* --- PRESS LIST --- */
+        .press-entry {
             margin-bottom: 60px;
         }
 
-        .essay-entry:last-child {
-            margin-bottom: 0;
-        }
-
-        .essay-title {
+        .press-title {
             font-family: var(--font-body);
             font-size: 1.5rem;
             font-weight: 600;
@@ -157,17 +180,15 @@
             margin-bottom: 10px;
         }
 
-        .essay-meta {
-            font-size: 1rem;
+        .press-meta {
+            font-family: var(--font-nav);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             color: var(--slate);
             margin-bottom: 15px;
-            font-family: var(--font-nav);
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 0.05em;
         }
 
-        /* Minimalist text links/buttons */
         .read-btn {
             display: inline-block;
             color: var(--israeli-blue);
@@ -181,6 +202,7 @@
             padding: 8px 16px;
             border-radius: 2px;
             transition: all 0.2s ease;
+            margin-right: 10px;
         }
 
         .read-btn:hover {
@@ -229,8 +251,9 @@
         .copyright { font-family: var(--font-nav); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.3em; opacity: 0.8; }
 
         @media (max-width: 768px) {
-            .essays-header { padding: 60px 1.5rem 40px; }
-            .essay-title { font-size: 1.3rem; }
+            .media-header { padding: 60px 1.5rem 40px; }
+            .video-grid { grid-template-columns: 1fr; }
+            .press-title { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -242,119 +265,99 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="academic-work.html">Research</a></li>
-            <li><a href="essays.html" class="active">Essays</a></li>
-            <li><a href="media.html">Media</a></li>
+            <li><a href="essays.html">Essays</a></li>
+            <li><a href="media.html" class="active">Media</a></li>
         </ul>
     </nav>
 
-    <!-- HEADER & SUBSCRIBE BUTTON -->
-    <header class="essays-header">
-        <h1>Essays</h1>
-        <p class="header-intro">
-            My academic research explores the foundations of modern Zionism; my public writing confronts its present. I write regularly on the intersections of Jewish history, politics, and contemporary culture.
-        </p>
-        <a href="https://substack.com/@oferidels" target="_blank" class="primary-btn">Subscribe to My Newsletter</a>
+    <!-- HEADER -->
+    <header class="media-header">
+        <h1>Media</h1>
     </header>
 
-    <!-- ESSAY LIST -->
-    <main class="essays-container">
+    <!-- MAIN CONTENT -->
+    <main class="media-container">
 
-        <!-- SUBSTACK -->
-        <section id="substack">
-            <h2 class="section-title">Substack: Letters & Essays</h2>
-            
-            <div class="essay-entry">
-                <span class="essay-title">How Bacon Cheeseburgers Became Jewish</span>
-                <p class="essay-meta">February 22, 2026</p>
-                <a href="https://substack.com/@oferidels/p-188850295" target="_blank" class="read-btn">[ Read on Substack ]</a>
-            </div>
+        <!-- ON CAMERA SECTION -->
+        <section id="on-camera">
+            <h2 class="section-title">On Camera</h2>
+            <div class="video-grid">
+                
+                <!-- Video 1 -->
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/EHOPSuYADX0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-meta">
+                        <span class="video-title">A Talk with the Schmooze Podcast: Antisemitism, Zionism and the Current Jewish Moment</span>
+                        <p class="video-date">January 30, 2026</p>
+                    </div>
+                </div>
 
-            <div class="essay-entry">
-                <span class="essay-title">Talk to Me: Jewish Progressivism and the Politics of Regression</span>
-                <p class="essay-meta">February 9, 2026</p>
-                <a href="https://substack.com/@oferidels/p-187353720" target="_blank" class="read-btn">[ Read on Substack ]</a>
-            </div>
+                <!-- Video 2 -->
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/vnLsx06PPt0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-meta">
+                        <span class="video-title">Embodying the Revolution and the History of Israeli Sport</span>
+                        <p class="video-date">Koschitzky Centre for Jewish Studies, York University | October 30, 2025</p>
+                    </div>
+                </div>
 
-            <div class="essay-entry">
-                <span class="essay-title">Are Jews Indigenous? I Don’t Know, and I Don’t Care.</span>
-                <p class="essay-meta">January 25, 2026</p>
-                <a href="https://substack.com/@oferidels/p-185738941" target="_blank" class="read-btn">[ Read on Substack ]</a>
-            </div>
+                <!-- Video 3 (Updated Hebrew Talk Link) -->
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/JyLmtjQGfYg" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-meta">
+                        <span class="video-title">Zionism and Sports (Published in Hebrew)</span>
+                        <p class="video-date">December 27, 2025</p>
+                    </div>
+                </div>
 
-            <div class="essay-entry">
-                <span class="essay-title">On Modernity and Irresponsibility</span>
-                <p class="essay-meta">January 18, 2026</p>
-                <a href="https://substack.com/@oferidels/p-184968544" target="_blank" class="read-btn">[ Read on Substack ]</a>
-            </div>
+                <!-- Video 4 -->
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/lus6XIh7aDw" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-meta">
+                        <span class="video-title">Interview with ITSS Verona</span>
+                        <p class="video-date">December 4, 2024</p>
+                    </div>
+                </div>
 
-            <div class="essay-entry">
-                <span class="essay-title">On the Weather and the Weight of a Sovereign Jewish Experience</span>
-                <p class="essay-meta">January 11, 2026</p>
-                <a href="https://substack.com/@oferidels/p-184243868" target="_blank" class="read-btn">[ Read on Substack ]</a>
-            </div>
-        </section>
+                <!-- Video 5 -->
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/THnvN5277B4?start=712" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-meta">
+                        <span class="video-title">Interview with the Tel Aviv Review</span>
+                        <p class="video-date">January 25, 2016</p>
+                    </div>
+                </div>
 
-        <!-- THE TIMES OF ISRAEL -->
-        <section id="times-of-israel">
-            <h2 class="section-title">The Times of Israel</h2>
-            
-            <div class="essay-entry">
-                <span class="essay-title">Have Hope in Zionism</span>
-                <p class="essay-meta">December 21, 2025</p>
-                <a href="https://blogs.timesofisrael.com/have-hope-in-zionism/" target="_blank" class="read-btn">[ Read Essay ]</a>
-            </div>
-
-            <div class="essay-entry">
-                <span class="essay-title">Anti-Zionism Is Not the Answer</span>
-                <p class="essay-meta">November 23, 2025</p>
-                <a href="https://blogs.timesofisrael.com/anti-zionism-is-not-the-answer/" target="_blank" class="read-btn">[ Read Essay ]</a>
-            </div>
-
-            <div class="essay-entry">
-                <span class="essay-title">Is Zionism the Crucible of History?</span>
-                <p class="essay-meta">November 13, 2025</p>
-                <a href="https://blogs.timesofisrael.com/is-zionism-the-crucible-of-history/" target="_blank" class="read-btn">[ Read Essay ]</a>
-            </div>
-
-            <div class="essay-entry">
-                <span class="essay-title">We Don’t Need to Imagine the Fall of Rome</span>
-                <p class="essay-meta">November 6, 2025</p>
-                <a href="https://blogs.timesofisrael.com/we-dont-need-to-imagine-the-fall-of-rome/" target="_blank" class="read-btn">[ Read Essay ]</a>
-            </div>
-        </section>
-
-        <!-- HEBREW PRESS -->
-        <section id="hebrew-press">
-            <h2 class="section-title">Hebrew Press & Commentary</h2>
-            
-            <div class="essay-entry">
-                <span class="essay-title">So, we didn’t make it to the World Cup again — so what? (Published in Hebrew)</span>
-                <p class="essay-meta">Ynet | November 16, 2025</p>
-                <a href="https://www.ynet.co.il/news/article/bk6lhzvxbg" target="_blank" class="read-btn">[ Read on Ynet ]</a>
-            </div>
-
-            <div class="essay-entry">
-                <span class="essay-title">A Major Change is Coming (Published in Hebrew)</span>
-                <p class="essay-meta">Ynet | October 30, 2025</p>
-                <a href="https://www.ynet.co.il/news/article/sya11nsgkwg#google_vignette" target="_blank" class="read-btn">[ Read on Ynet ]</a>
-            </div>
-
-            <div class="essay-entry">
-                <span class="essay-title">Is There Zionism Without Suspicion? (Published in Hebrew)</span>
-                <p class="essay-meta">Telem | October 5, 2025</p>
-                <a href="https://telem.berl.org.il/13325/" target="_blank" class="read-btn">[ Read on Telem ]</a>
             </div>
         </section>
 
-        <!-- INTERNATIONAL COMMENTARY -->
-        <section id="international">
-            <h2 class="section-title">International Commentary</h2>
-            
-            <div class="essay-entry">
-                <span class="essay-title">The Horrifying Human Cost of Big Sporting Events</span>
-                <p class="essay-meta">The Conversation | June 26, 2024</p>
-                <a href="https://theconversation.com/the-horrifying-human-cost-of-big-sporting-events-231959" target="_blank" class="read-btn">[ Read Essay ]</a>
+        <!-- INTERVIEWS & PRESS SECTION -->
+        <section id="press">
+            <h2 class="section-title">Interviews & Press</h2>
+
+            <div class="press-entry">
+                <span class="press-title">The Jewish War on Soccer in British Mandatory Palestine</span>
+                <p class="press-meta">Haaretz | April 23, 2021</p>
+                <a href="https://www.haaretz.com/israel-news/2021-04-23/ty-article/.premium/the-jewish-war-on-soccer-in-british-mandatory-palestine/0000017f-e504-df2c-a1ff-ff5557730000" target="_blank" class="read-btn">[ Read in English ]</a>
+                <a href="https://www.haaretz.co.il/news/education/2021-04-23/ty-article/.premium/0000017f-e509-d804-ad7f-f5fb99550000" target="_blank" class="read-btn">[ Read in Hebrew ]</a>
             </div>
+
+            <div class="press-entry">
+                <span class="press-title">University of Calgary Welcomes Israel Scholar Ofer Idels</span>
+                <p class="press-meta">Alberta Jewish News | March 4, 2025</p>
+                <a href="https://albertajewishnews.com/university-of-calgary-welcomes-israel-scholar-ofer-idels/" target="_blank" class="read-btn">[ Read Article ]</a>
+            </div>
+
         </section>
 
     </main>
