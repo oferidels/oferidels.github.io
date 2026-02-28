@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) - Visitor Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV0CPQD2R1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-WV0CPQD2R1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Ofer Idels</title>
+    <!-- Premium Font Pairing -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --israeli-blue: #0038b8; 
+            --deep-navy: #0f172a;    
+            --slate: #475569;
+            --white: #ffffff;
+            --border-light: #e2e8f0;
+            --font-header: 'Cinzel', serif;
+            --font-nav: 'Montserrat', sans-serif;
+            --font-body: 'Source Sans 3', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--deep-navy);
+            background-color: var(--white);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 1.5rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        nav ul { list-style: none; display: flex; justify-content: center; gap: 2.8rem; }
+        nav a {
+            text-decoration: none;
+            color: var(--slate);
+            font-family: var(--font-nav);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        nav a:hover, nav a.active { color: var(--israeli-blue); }
+
+        /* --- MAGAZINE HEADER --- */
+        .about-header {
+            padding: 120px 2rem 20px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-header h1 {
+            font-family: var(--font-header);
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            color: var(--deep-navy);
+            margin-bottom: 0;
+            letter-spacing: -0.02em;
+        }
+
+        .about-header .accent-line {
+            width: 80px;
+            height: 4px;
+            background: var(--israeli-blue);
+            margin: 20px auto;
+        }
+
+        /* --- FEATURE CONTENT AREA --- */
+        .about-feature {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 2rem 120px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr; /* Text wider than image */
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* Text side with decorative background block */
+        .about-text-wrapper {
+            position: relative;
+            padding-right: 20px;
+        }
+
+        .lead-para {
+            font-size: 1.5rem;
+            color: var(--deep-navy);
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        /* Large quotation mark accent */
+        .lead-para::before {
+            content: '“';
+            position: absolute;
+            top: -40px;
+            left: -20px;
+            font-family: var(--font-header);
+            font-size: 5rem;
+            color: var(--border-light);
+            z-index: -1;
+        }
+
+        .main-bio {
+            font-size: 1.1rem;
+            color: var(--slate);
+            line-height: 1.9;
+        }
+
+        .main-bio p {
+            margin-bottom: 1.8rem;
+        }
+
+        .main-bio em {
+            font-style: italic;
+            color: var(--deep-navy);
+            font-weight: 500;
+        }
+
+        /* Visual side (Right) */
+        .about-visual {
+            position: sticky;
+            top: 140px;
+        }
+
+        .image-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Modern shadow-based engagement */
+        .about-photo {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            filter: grayscale(100%) contrast(1.1);
+            display: block;
+            box-shadow: 30px 30px 0px #f8fafc, 0 20px 40px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: #fafafa;
+            border-top: 1px solid var(--border-light);
+            color: var(--slate);
+        }
+
+        .contact-link {
+            color: var(--israeli-blue);
+            font-family: var(--font-header);
+            font-size: 0.9rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--israeli-blue);
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .social-links a { color: var(--slate); font-size: 1.2rem; transition: color 0.3s ease; }
+        .social-links a:hover { color: var(--israeli-blue); }
+
+        .substack-icon { width: 18px; height: 18px; fill: currentColor; vertical-align: middle; }
+        .copyright { font-family: var(--font-nav); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.3em; opacity: 0.8; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1000px) {
+            .about-feature { grid-template-columns: 1fr; gap: 60px; }
+            .about-visual { position: static; max-width: 400px; margin: 0 auto; order: -1; } /* Photo on top for mobile */
+            .about-header { padding: 80px 1.5rem 20px; }
+            .lead-para { font-size: 1.2rem; text-align: center; }
+            .main-bio { text-align: justify; }
+            .about-photo { box-shadow: 15px 15px 0px #f8fafc; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION MENU -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="academic-work.html">Research</a></li>
+            <li><a href="essays.html">Essays</a></li>
+            <li><a href="media.html">Media</a></li>
+        </ul>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="about-header">
+        <h1>Ofer Idels</h1>
+        <div class="accent-line"></div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="about-feature">
+        
+        <div class="about-text-wrapper">
+            <div class="lead-para">
+                I am a historian and scholar of Zionism and modern Jewish history. I currently serve as the Jenny Belzberg Postdoctoral Fellow in Israel Studies at the University of Calgary.
+            </div>
+            
+            <div class="main-bio">
+                <p>
+                    Across both my rigorous academic research and my public commentary, my work is driven by an attempt to reconstruct—rather than deconstruct—the foundations of the modern Jewish experience, bringing an innovative theoretical and methodological awareness to the study of Israel that explores the physical, cultural, and emotional experiences of Zionism.
+                </p>
+
+                <p>
+                    I earned my PhD in 2021 from the Zvi Yavetz School of Historical Studies at Tel Aviv University, and subsequently served as a Humboldt Postdoctoral Fellow at the Ludwig Maximilian University of Munich. This international academic journey has culminated in two books: <em>Zionism: Emotions, Language and Experience</em> (Cambridge University Press, 2024) and <em>Embodying the Revolution</em> (Rutgers University Press, 2025).
+                </p>
+
+                <p>
+                    Today, my writing bridges the gap between the archives and the public square, with frequent essays appearing in <em>The Times of Israel</em>, <em>Ynet</em>, and my Substack newsletter.
+                </p>
+            </div>
+        </div>
+
+        <div class="about-visual">
+            <div class="image-container">
+                <img src="profile.jpg" alt="Ofer Idels" class="about-photo" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop'">
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <a href="mailto:oferidels@gmail.com" class="contact-link">Contact Me</a>
+        <div class="social-links">
+            <a href="https://www.facebook.com/ofer.idels" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/OferIdels" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://substack.com/@oferidels" target="_blank" title="Substack">
+                <svg class="substack-icon" viewBox="0 0 448 512">
+                    <path d="M0 0l448 0 0 74.2 -448 0 0 -74.2zm0 128.4l448 0 0 185.3 -224 113.1L0 313.7l0 -185.3zm0 259.5l448 0 0 124.1L0 512l0 -124.1z"/>
+                </svg>
+            </a>
+        </div>
+        <p class="copyright">&copy; 2026 Ofer Idels. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
