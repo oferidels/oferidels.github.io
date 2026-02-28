@@ -14,8 +14,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Ofer Idels</title>
-    <!-- Premium Font Pairing -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Premium Font Pairing: Cinzel for headers, Source Sans 3 for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Social Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
@@ -24,7 +25,9 @@
             --deep-navy: #0f172a;    
             --slate: #475569;
             --white: #ffffff;
-            --border-light: #e2e8f0;
+            --border-light: #f1f5f9;
+            
+            /* Typography Variables */
             --font-header: 'Cinzel', serif;
             --font-nav: 'Montserrat', sans-serif;
             --font-body: 'Source Sans 3', sans-serif;
@@ -44,15 +47,21 @@
         /* --- NAVIGATION --- */
         nav {
             padding: 1.5rem 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid var(--border-light);
+            border-bottom: 1px solid #eee;
         }
 
-        nav ul { list-style: none; display: flex; justify-content: center; gap: 2.8rem; }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.8rem;
+        }
+
         nav a {
             text-decoration: none;
             color: var(--slate);
@@ -63,105 +72,115 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        nav a:hover, nav a.active { color: var(--israeli-blue); }
 
-        /* --- MAGAZINE HEADER --- */
-        .about-header {
-            padding: 120px 2rem 20px;
+        nav a:hover, nav a.active {
+            color: var(--israeli-blue);
+        }
+
+        /* --- CENTERED HEADER --- */
+        .magazine-header {
+            padding: 100px 2rem 40px;
             text-align: center;
-            max-width: 1200px;
+        }
+
+        .magazine-header h1 {
+            font-family: var(--font-header);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--deep-navy);
+            margin-bottom: 15px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .magazine-header .accent-line {
+            width: 60px;
+            height: 3px;
+            background-color: var(--israeli-blue);
             margin: 0 auto;
         }
 
-        .about-header h1 {
-            font-family: var(--font-header);
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            color: var(--deep-navy);
-            margin-bottom: 0;
-            letter-spacing: -0.02em;
-        }
-
-        .about-header .accent-line {
-            width: 80px;
-            height: 4px;
-            background: var(--israeli-blue);
-            margin: 20px auto;
-        }
-
-        /* --- FEATURE CONTENT AREA --- */
-        .about-feature {
-            max-width: 1200px;
+        /* --- TWO COLUMN CONTENT --- */
+        .content-grid {
+            max-width: 1100px;
             margin: 0 auto;
             padding: 40px 2rem 120px;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr; /* Text wider than image */
+            grid-template-columns: 1fr 400px; /* Text left, fixed width photo right */
             gap: 80px;
             align-items: start;
         }
 
-        /* Text side with decorative background block */
-        .about-text-wrapper {
-            position: relative;
-            padding-right: 20px;
-        }
-
-        .lead-para {
-            font-size: 1.5rem;
-            color: var(--deep-navy);
-            font-weight: 500;
-            line-height: 1.5;
-            margin-bottom: 3rem;
+        /* Text Side */
+        .text-column {
             position: relative;
         }
 
-        /* Large quotation mark accent */
-        .lead-para::before {
+        /* The large light-gray quote mark */
+        .text-column::before {
             content: '“';
             position: absolute;
-            top: -40px;
-            left: -20px;
-            font-family: var(--font-header);
-            font-size: 5rem;
-            color: var(--border-light);
+            top: -30px;
+            left: -25px;
+            font-size: 6rem;
+            font-family: serif;
+            color: #f1f5f9;
             z-index: -1;
+            line-height: 1;
         }
 
-        .main-bio {
-            font-size: 1.1rem;
+        .lead-paragraph {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--deep-navy);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .body-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
             color: var(--slate);
-            line-height: 1.9;
         }
 
-        .main-bio p {
-            margin-bottom: 1.8rem;
-        }
-
-        .main-bio em {
+        .body-text em {
             font-style: italic;
             color: var(--deep-navy);
             font-weight: 500;
         }
 
-        /* Visual side (Right) */
-        .about-visual {
+        /* Photo Side */
+        .visual-column {
             position: sticky;
             top: 140px;
         }
 
-        .image-container {
+        .photo-offset-container {
             position: relative;
-            z-index: 1;
+            padding-bottom: 20px;
+            padding-right: 20px;
         }
 
-        /* Modern shadow-based engagement */
+        /* The white background offset layer */
+        .offset-layer {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            z-index: 1;
+            border: 1px solid #eee;
+        }
+
         .about-photo {
+            position: relative;
             width: 100%;
             height: auto;
-            border-radius: 2px;
-            filter: grayscale(100%) contrast(1.1);
             display: block;
-            box-shadow: 30px 30px 0px #f8fafc, 0 20px 40px rgba(0,0,0,0.1);
-            border: 1px solid #eee;
+            z-index: 2;
+            filter: grayscale(100%) contrast(1.1);
+            border: 1px solid #fff;
         }
 
         /* --- FOOTER --- */
@@ -169,7 +188,7 @@
             padding: 6rem 2rem;
             text-align: center;
             background: #fafafa;
-            border-top: 1px solid var(--border-light);
+            border-top: 1px solid #eee;
             color: var(--slate);
         }
 
@@ -182,6 +201,7 @@
             letter-spacing: 0.12em;
             text-transform: uppercase;
             border-bottom: 1px solid var(--israeli-blue);
+            transition: opacity 0.3s;
             display: inline-block;
             margin-bottom: 25px;
         }
@@ -199,14 +219,24 @@
         .substack-icon { width: 18px; height: 18px; fill: currentColor; vertical-align: middle; }
         .copyright { font-family: var(--font-nav); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.3em; opacity: 0.8; }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1000px) {
-            .about-feature { grid-template-columns: 1fr; gap: 60px; }
-            .about-visual { position: static; max-width: 400px; margin: 0 auto; order: -1; } /* Photo on top for mobile */
-            .about-header { padding: 80px 1.5rem 20px; }
-            .lead-para { font-size: 1.2rem; text-align: center; }
-            .main-bio { text-align: justify; }
-            .about-photo { box-shadow: 15px 15px 0px #f8fafc; }
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 900px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .visual-column {
+                order: -1; /* Photo on top for mobile */
+                max-width: 400px;
+                margin: 0 auto;
+                position: static;
+            }
+            .magazine-header {
+                padding-top: 60px;
+            }
+            .text-column::before {
+                left: 0;
+            }
         }
     </style>
 </head>
@@ -223,21 +253,21 @@
         </ul>
     </nav>
 
-    <!-- HEADER -->
-    <header class="about-header">
+    <!-- CENTERED HEADER -->
+    <header class="magazine-header">
         <h1>Ofer Idels</h1>
         <div class="accent-line"></div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="about-feature">
+    <!-- TWO COLUMN CONTENT -->
+    <main class="content-grid">
         
-        <div class="about-text-wrapper">
-            <div class="lead-para">
+        <div class="text-column">
+            <p class="lead-paragraph">
                 I am a historian and scholar of Zionism and modern Jewish history. I currently serve as the Jenny Belzberg Postdoctoral Fellow in Israel Studies at the University of Calgary.
-            </div>
+            </p>
             
-            <div class="main-bio">
+            <div class="body-text">
                 <p>
                     Across both my rigorous academic research and my public commentary, my work is driven by an attempt to reconstruct—rather than deconstruct—the foundations of the modern Jewish experience, bringing an innovative theoretical and methodological awareness to the study of Israel that explores the physical, cultural, and emotional experiences of Zionism.
                 </p>
@@ -252,15 +282,17 @@
             </div>
         </div>
 
-        <div class="about-visual">
-            <div class="image-container">
-                <img src="ofer.idels.jpg" alt="Ofer Idels" class="about-photo" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop'">
+        <div class="visual-column">
+            <div class="photo-offset-container">
+                <div class="offset-layer"></div>
+                <!-- This photo should be saved as ofer-idels.jpg on GitHub -->
+                <img src="ofer-idels.jpg" alt="Ofer Idels" class="about-photo" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop'">
             </div>
         </div>
 
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER WITH CONTACT & SOCIAL LINKS -->
     <footer>
         <a href="mailto:oferidels@gmail.com" class="contact-link">Contact Me</a>
         <div class="social-links">
