@@ -1,3 +1,64 @@
+Claude finished the response
+
+i need to add those to lec and podacst 
+
+thispodscst
+
+https://tlv1.fm/the-tel-aviv-review/2026/08/10/body-politics-2/
+
+and this  lect
+
+https://www.youtube.com/watch?v=jz2j9IiCT6Q&t=1369s
+
+I'll grab the details from both links so the entries are accurate.
+Searched the web
+
+The podcast details are clear. Let me confirm the lecture video's title.
+Navigated missing details by requesting clarification on lecture specifics
+
+I've got the podcast details confirmed (Tel Aviv Review, "Body Politics," August 10, 2026). The lecture video I couldn't pull a title for — YouTube is blocking my fetches right now. So I'll add the podcast fully, add the video embed with the right ID, and leave the video title/date as a placeholder for you to confirm.
+
+Quick question so I get the video right:
+The lecture video (jz2j9IiCT6Q) — where should it go and how should it be labeled? Give me the title/date, or pick:
+It's a talk → 'On Camera' section
+
+Let me try once more to grab the video's title.
+Searched the web
+
+I couldn't retrieve the lecture's title/date (YouTube is blocking automated fetches). So I'll add its embed to the top of the "On Camera" grid with a placeholder title and date clearly marked [EDIT] for you to fill in. The podcast I've added in full with confirmed details.
+Ran a command, created a file, read a file
+
+Done. Two changes:
+
+Podcast — added at the top of "Interviews & Press":
+
+    Body Politics: Zionism, Sport and the Making of the "New Jew" — The Tel Aviv Review, August 10, 2026, with a listen link. (Feel free to shorten that title if you'd rather just call it "Body Politics.")
+
+Lecture — added as the first item in the "On Camera" grid, embedding jz2j9IiCT6Q. I couldn't retrieve its title or date (YouTube blocked my fetches), so I left two placeholders marked [EDIT: Lecture Title] and [EDIT: Date]. Just tell me the title and date and I'll drop them in — or edit those two lines directly.
+
+One note: your link had a timestamp (t=1369s), but for an embed I started it from the beginning, which is the usual choice for a talk. Say the word if you want it to jump to 22:49 instead.
+Media
+Code · HTML 
+
+the youtube title should be
+
+How Zionism Revolutionized Jewishness a talk School of Global Studies and Judaic Studies University of Arizona
+
+Jun 30, 2026
+Edited a file, read a file
+
+Set. The lecture now reads "How Zionism Revolutionized Jewishness: A Talk at the School of Global Studies and Judaic Studies, University of Arizona" — June 30, 2026, sitting at the top of the On Camera grid. I added a colon and "A Talk at the" for readability; let me know if you'd prefer your exact wording verbatim. Both the podcast and lecture are now live in the file.
+Media
+Code · HTML 
+
+i need the coode to cpoy paste
+
+Here's the full media.html to copy-paste:
+Output full file for copy-paste
+
+Here's the complete media.html, ready to copy-paste:
+html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -284,6 +345,16 @@
 
         <div class="video-item">
             <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/jz2j9IiCT6Q" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-meta">
+                <span class="video-title">How Zionism Revolutionized Jewishness: A Talk at the School of Global Studies and Judaic Studies, University of Arizona</span>
+                <p class="video-date">June 30, 2026</p>
+            </div>
+        </div>
+
+        <div class="video-item">
+            <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/dCxxxEbqmyQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="video-meta">
@@ -352,6 +423,12 @@
             <h2 class="section-title">Interviews & Press</h2>
 
             <div class="press-entry">
+                <span class="press-title">Body Politics: Zionism, Sport and the Making of the &ldquo;New Jew&rdquo;</span>
+                <p class="press-meta">The Tel Aviv Review | August 10, 2026</p>
+                <a href="https://tlv1.fm/the-tel-aviv-review/2026/08/10/body-politics-2/" target="_blank" class="read-btn">[ Listen to Interview ]</a>
+            </div>
+
+            <div class="press-entry">
                 <span class="press-title">Interview: Zionism and Sport</span>
                 <p class="press-meta">Kan Podcast | December 26, 2025</p>
                 <a href="https://www.kan.org.il/content/kan/podcasts/p-1031314/1048177/" target="_blank" class="read-btn">[ Listen to Interview ]</a>
@@ -398,3 +475,10 @@
 
 </body>
 </html>
+
+That's the whole file with both additions baked in — the Arizona lecture at the top of On Camera and the Tel Aviv Review podcast at the top of Interviews & Press.
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+Media · HTML
+
